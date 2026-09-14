@@ -5,13 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Paul the tennis guy — Cours de tennis</title>
 
-<!-- ==========================================================================
-     MODIFIABLE : titre de l'onglet du navigateur ci-dessus (balise <title>)
-     ========================================================================== -->
-
-<!-- Police Poppins chargée depuis Google Fonts (gratuite).
-     Glacial Indifference n'est pas dispo sur Google Fonts : voir style.css
-     section 2 pour l'ajouter toi-même si tu as les fichiers de police. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
@@ -36,53 +29,48 @@
 
   <div class="conteneur">
 
-    <!-- ======================================================================
-         PARAGRAPHE D'INTRODUCTION
-         MODIFIABLE : remplace le texte "XXXXX" ci-dessous par ta présentation
-         ====================================================================== -->
     <section class="intro">
-      <p>XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX.</p>
+      <p>Écrire introduction ici.</p>
     </section>
-
-    <!-- ======================================================================
-         TARIFS — deux colonnes
-         MODIFIABLE : noms de prestations et prix (remplace les "XXXXX").
-         Colonne de gauche : ajoute/retire des <li> autant que nécessaire
-         pour tes différentes prestations (cours individuel, duo, stage...).
-         ====================================================================== -->
     <section class="tarifs" aria-label="Tarifs">
 
-      <!-- Colonne 1 : prestations à l'unité -->
+      <!-- Colonne 1 : Cours individuel -->
       <div class="carte-tarif">
-        <div class="carte-tarif__titre">Prestations à l'unité</div>
+        <div class="carte-tarif__titre">Cours individuel</div>
         <ul class="liste-prestations">
           <li>
-            <span class="prestation-nom">Cours individuel</span>
-            <span class="prestation-prix">XXX €</span>
+            <span class="prestation-nom">10h</span>
+            <span class="prestation-prix">240€</span>
           </li>
           <li>
-            <span class="prestation-nom">XXXXX</span>
-            <span class="prestation-prix">XXX €</span>
+            <span class="prestation-nom">15h</span>
+            <span class="prestation-prix">338€</span>
           </li>
           <li>
-            <span class="prestation-nom">XXXXX</span>
-            <span class="prestation-prix">XXX €</span>
+            <span class="prestation-nom">20h</span>
+            <span class="prestation-prix">440€</span>
           </li>
-          <!-- MODIFIABLE : ajoute d'autres <li> ici pour d'autres prestations -->
         </ul>
       </div>
 
-      <!-- Colonne 2 : formule trimestrielle -->
+         <!-- Colonne 3 : Programmation de tournois -->
       <div class="carte-tarif carte-tarif--accent">
-        <div class="carte-tarif__titre">Formule trimestrielle</div>
+        <div class="carte-tarif__titre">Programmation de tournois</div>
         <ul class="liste-prestations">
           <li>
-            <span class="prestation-nom">XXXXX</span>
-            <span class="prestation-prix">XXX €</span>
+            <span class="prestation-nom">Forfait trimestriel (12 semaines, suivi inclus)</span>
+            <span class="prestation-prix">80€</span>
           </li>
+        </ul>
+      </div>
+
+      <!-- Colonne 3 : Pack trimestre -->
+      <div class="carte-tarif carte-tarif--accent">
+        <div class="carte-tarif__titre">Pack trimestre compétition</div>
+        <ul class="liste-prestations">
           <li>
-            <span class="prestation-nom">XXXXX</span>
-            <span class="prestation-prix">XXX €</span>
+            <span class="prestation-nom">15h de cours individuels + programmation de tournois sur le trimestre</span>
+            <span class="prestation-prix">410€</span>
           </li>
         </ul>
       </div>
@@ -93,7 +81,7 @@
          BOUTON VERS LE FORMULAIRE DE CONTACT
          MODIFIABLE : 
          - texte du bouton (actuellement "Me contacter")
-         - lien du formulaire dans href (actuellement ton formulaire Notion)
+         - lien du formulaire dans href
          Le formulaire s'ouvre dans un nouvel onglet (target="_blank").
          ====================================================================== -->
     <div class="zone-cta">
@@ -104,12 +92,11 @@
 
   <!-- ========================================================================
        PIED DE PAGE — RÉSEAUX SOCIAUX
-       MODIFIABLE : remplace les href="#" par tes vrais liens Instagram / TikTok
-       quand tu les auras (ex : href="https://instagram.com/tonpseudo")
+       MODIFIABLE : remplacer les href="#" par les vrais liens Instagram / TikTok
        ======================================================================== -->
   <footer class="pied-de-page">
     <div class="reseaux">
-      <a href="#" aria-label="Instagram">
+      <a href="https://www.instagram.com/paulthetennisguy/" aria-label="Instagram">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="2" y="2" width="20" height="20" rx="6" stroke="#FFEFBE" stroke-width="2"/>
           <circle cx="12" cy="12" r="4.5" stroke="#FFEFBE" stroke-width="2"/>
