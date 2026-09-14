@@ -1,0 +1,470 @@
+/* ==========================================================================
+   PAUL THE TENNIS GUY — FEUILLE DE STYLE PARTAGÉE
+   ==========================================================================
+   Ce fichier est utilisé par index.html (landing) ET contact.html.
+   Toutes les zones que tu peux vouloir modifier sont indiquées par un
+   commentaire "MODIFIABLE :".
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1) COULEURS — MODIFIABLE : change juste les codes hexa ici, tout le site
+      se met à jour automatiquement (couleurs venant de ta charte graphique).
+   -------------------------------------------------------------------------- */
+:root {
+  --rouge1:        #541515; /* Rouge 1 */
+  --jaune:          #FFEFBE; /* Jaune */
+  --blanc-creme:    #FFFBED; /* Blanc (crème) */
+  --bordeaux:       #320C0C; /* Bordeaux (le plus foncé) */
+
+  /* Rôles attribués aux couleurs — change ici si tu veux inverser
+     par ex. un fond bordeaux au lieu d'un fond crème */
+  --couleur-fond:        var(--blanc-creme);
+  --couleur-texte:       var(--bordeaux);
+  --couleur-texte-doux:  #6b4a4a; /* gris-bordeaux pour texte secondaire */
+  --couleur-accent:      var(--rouge1);
+  --couleur-accent-fonce:var(--bordeaux);
+  --couleur-carte:       #ffffff;
+  --couleur-bouton-texte:var(--blanc-creme);
+}
+
+/* --------------------------------------------------------------------------
+   1bis) VARIANTE "INVERSÉE" (utilisée sur la page contact)
+   -------------------------------------------------------------------------- 
+   MODIFIABLE : ajoute la classe "page--inversee" sur la balise <body> d'une
+   page pour basculer sur un fond rouge avec le texte en crème, tout en
+   gardant la même palette de marque. Change les variables ci-dessous si tu
+   veux ajuster ce look (ex. remplacer --rouge1 par --bordeaux pour un fond
+   encore plus foncé).
+*/
+body.page--inversee {
+  --couleur-fond:         var(--rouge1);
+  --couleur-texte:        var(--blanc-creme);
+  --couleur-texte-doux:   rgba(255, 251, 237, 0.72);
+  --couleur-carte:        var(--blanc-creme);
+  --couleur-accent:       var(--rouge1);
+  --couleur-accent-fonce: var(--jaune);
+  --couleur-bouton-texte: var(--bordeaux);
+}
+
+/* --------------------------------------------------------------------------
+   2) TYPOGRAPHIE — MODIFIABLE
+   -------------------------------------------------------------------------- 
+   Ta charte utilise deux polices : Poppins (titres/gras) et Glacial
+   Indifference (texte courant). Poppins est chargée via Google Fonts
+   (voir la balise <link> dans le <head> des pages HTML).
+
+   Glacial Indifference N'EST PAS disponible sur Google Fonts (c'est une
+   police payante/à licence séparée). Si tu possèdes les fichiers de police
+   (.woff2), décommente et complète le bloc @font-face ci-dessous, dépose
+   les fichiers dans /assets/fonts/, et le site l'utilisera automatiquement.
+   En attendant, on utilise une police système proche (sans-serif) en repli.
+*/
+
+/*
+@font-face {
+  font-family: "Glacial Indifference";
+  src: url("assets/fonts/GlacialIndifference-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Glacial Indifference";
+  src: url("assets/fonts/GlacialIndifference-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+*/
+
+:root {
+  --police-titres: "Poppins", sans-serif;
+  --police-texte:  "Glacial Indifference", "Poppins", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--couleur-fond);
+  color: var(--couleur-texte);
+  font-family: var(--police-texte);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--police-titres);
+  font-weight: 700;
+  margin: 0 0 0.5em 0;
+  color: var(--couleur-texte);
+}
+
+a { color: inherit; }
+
+img, svg { max-width: 100%; display: block; }
+
+/* --------------------------------------------------------------------------
+   3) STRUCTURE GÉNÉRALE
+   -------------------------------------------------------------------------- */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.conteneur {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --------------------------------------------------------------------------
+   4) EN-TÊTE / LOGO — MODIFIABLE
+   -------------------------------------------------------------------------- 
+   Le logo est fait en SVG directement dans le HTML (pas une image),
+   ce qui permet de changer sa couleur facilement avec --couleur-accent.
+   Si tu préfères utiliser ton propre fichier logo (PNG/SVG exporté),
+   remplace le bloc <div class="logo">...</div> dans le HTML par :
+   <img src="assets/logo.png" alt="Paul the tennis guy" class="logo-image">
+*/
+.entete {
+  padding: 56px 0 24px;
+  text-align: center;
+}
+
+.logo-mark {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 18px;
+  border-radius: 20px;
+  background: var(--couleur-accent-fonce);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-mark svg { width: 34px; height: 34px; }
+
+.logo-texte {
+  font-family: var(--police-titres);
+  font-weight: 800;
+  font-size: 30px;
+  letter-spacing: -0.02em;
+  color: var(--couleur-texte);
+}
+
+.logo-souslegende {
+  font-family: var(--police-texte);
+  font-size: 14px;
+  color: var(--couleur-texte-doux);
+  margin-top: -2px;
+}
+
+/* --------------------------------------------------------------------------
+   4bis) LOGO EN VRAIS FICHIERS IMAGE (mark + wordmark fournis par l'utilisateur)
+   -------------------------------------------------------------------------- 
+   MODIFIABLE : 
+   - "logo-mark-img" = le pictogramme carré "P."
+   - "logo-wordmark-img" = le logo texte "paul the tennis guy"
+   Pour changer la taille, ajuste juste "width" / "max-width" ci-dessous.
+*/
+.logo-mark-img {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 6px; /* espace réduit entre le pictogramme et le mot "paul" */
+  display: block;
+  border-radius: 16px;
+}
+
+.logo-wordmark-img {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   5) INTRO / PARAGRAPHE — MODIFIABLE : texte dans le HTML (balise <p id="intro">)
+   -------------------------------------------------------------------------- */
+.intro {
+  text-align: center;
+  padding: 8px 0 40px;
+}
+
+.intro p {
+  max-width: 480px;
+  margin: 0 auto;
+  color: var(--couleur-texte-doux);
+  font-size: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   6) TARIFS — MODIFIABLE : contenu dans le HTML, styles ici
+   -------------------------------------------------------------------------- */
+.tarifs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 0 0 40px;
+}
+
+@media (max-width: 620px) {
+  .tarifs { grid-template-columns: 1fr; }
+}
+
+.carte-tarif {
+  background: var(--couleur-carte);
+  border: 1.5px solid rgba(50, 12, 12, 0.12);
+  border-radius: 18px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.carte-tarif__titre {
+  font-family: var(--police-titres);
+  font-weight: 700;
+  font-size: 19px;
+  margin-bottom: 14px; /* espace sous le titre (pas de sous-titre actuellement) */
+}
+
+.carte-tarif__soustitre {
+  font-size: 14px;
+  color: var(--couleur-texte-doux);
+  margin-bottom: 20px;
+}
+
+.liste-prestations {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+  flex-grow: 1;
+}
+
+.liste-prestations li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid rgba(50, 12, 12, 0.1);
+}
+
+.liste-prestations li:first-child { border-top: none; }
+
+.prestation-nom { font-size: 15px; }
+
+.prestation-prix {
+  font-family: var(--police-titres);
+  font-weight: 700;
+  font-size: 15px;
+  white-space: nowrap;
+  color: var(--couleur-accent);
+}
+
+.carte-tarif--accent {
+  background: var(--couleur-accent-fonce);
+  border-color: transparent;
+  color: var(--couleur-fond);
+}
+.carte-tarif--accent .carte-tarif__titre,
+.carte-tarif--accent .carte-tarif__soustitre { color: var(--couleur-fond); }
+.carte-tarif--accent .liste-prestations li { border-top-color: rgba(255,255,255,0.18); }
+.carte-tarif--accent .prestation-prix { color: var(--jaune); }
+
+.tarif-note {
+  font-size: 13px;
+  color: var(--couleur-texte-doux);
+  margin-top: 4px;
+}
+.carte-tarif--accent .tarif-note { color: rgba(255,251,237,0.7); }
+
+/* --------------------------------------------------------------------------
+   7) BOUTONS — MODIFIABLE : couleur héritée de --couleur-accent / accent-fonce
+   -------------------------------------------------------------------------- */
+.bouton {
+  display: inline-block;
+  font-family: var(--police-titres);
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 16px 36px;
+  border-radius: 100px;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.bouton--principal {
+  background: var(--couleur-accent-fonce);
+  color: var(--couleur-bouton-texte);
+}
+
+.bouton--principal:hover { opacity: 0.88; }
+.bouton--principal:focus-visible { outline: 3px solid var(--jaune); outline-offset: 2px; }
+
+.zone-cta {
+  text-align: center;
+  padding: 8px 0 56px;
+}
+
+/* --------------------------------------------------------------------------
+   8) SECTION CONTACT (page contact.html) — MODIFIABLE
+   -------------------------------------------------------------------------- */
+.bloc-contact {
+  padding: 0 0 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+/* MODIFIABLE : utilisée quand il n'y a que le formulaire (plus de bloc
+   "coordonnées" à côté) — une seule colonne centrée */
+.bloc-contact--seul {
+  grid-template-columns: 1fr;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+@media (max-width: 620px) {
+  .bloc-contact { grid-template-columns: 1fr; }
+}
+
+.carte-contact {
+  background: var(--couleur-carte);
+  border: 1.5px solid rgba(50, 12, 12, 0.12);
+  border-radius: 18px;
+  padding: 28px 24px;
+  /* La carte reste toujours claire (même sur la page inversée), donc son
+     texte reste toujours foncé, indépendamment de --couleur-texte */
+  color: var(--bordeaux);
+}
+
+.carte-contact h2 {
+  font-size: 18px;
+  margin-bottom: 18px;
+  color: var(--bordeaux);
+}
+
+.champ {
+  margin-bottom: 16px;
+}
+
+.champ label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: var(--police-titres);
+  margin-bottom: 6px;
+}
+
+.champ input,
+.champ textarea {
+  width: 100%;
+  font-family: var(--police-texte);
+  font-size: 15px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(50, 12, 12, 0.18);
+  background: var(--blanc-creme);
+  color: var(--bordeaux);
+}
+
+.champ textarea { resize: vertical; min-height: 110px; }
+
+.champ input:focus,
+.champ textarea:focus {
+  outline: none;
+  border-color: var(--couleur-accent);
+}
+
+.bouton-form {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  font-family: var(--police-titres);
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px;
+  border-radius: 10px;
+  background: var(--couleur-accent-fonce);
+  color: var(--couleur-bouton-texte);
+}
+.bouton-form:hover { opacity: 0.9; }
+
+.coordonnee {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 0;
+  border-top: 1px solid rgba(50, 12, 12, 0.1);
+}
+.coordonnee:first-of-type { border-top: none; padding-top: 0; }
+
+.coordonnee__icone {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--couleur-accent);
+}
+
+.coordonnee__label {
+  font-size: 12px;
+  font-weight: 700;
+  font-family: var(--police-titres);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--couleur-texte-doux);
+  margin-bottom: 2px;
+}
+
+.coordonnee__valeur { font-size: 15px; }
+
+/* --------------------------------------------------------------------------
+   9) PIED DE PAGE / RÉSEAUX SOCIAUX — MODIFIABLE : liens href dans le HTML
+   -------------------------------------------------------------------------- */
+.pied-de-page {
+  margin-top: auto;
+  padding: 28px 0 40px;
+  text-align: center;
+}
+
+.reseaux {
+  display: flex;
+  justify-content: center;
+  gap: 28px; /* MODIFIABLE : espace entre les icônes Instagram / TikTok */
+  margin-bottom: 14px;
+}
+
+.reseaux a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--bordeaux); /* MODIFIABLE : couleur des cercles réseaux sociaux (fixe, pour garder un bon contraste sur fond clair comme sur fond rouge) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+.reseaux a:hover { transform: translateY(-2px); }
+.reseaux a svg { width: 19px; height: 19px; }
+
+.pied-de-page small {
+  color: var(--couleur-texte-doux);
+  font-size: 13px;
+}
+
+/* Lien discret retour à l'accueil (page contact) */
+.lien-retour {
+  display: inline-block;
+  margin-bottom: 24px;
+  font-size: 14px;
+  color: var(--couleur-texte-doux);
+  text-decoration: none;
+}
+.lien-retour:hover { color: var(--couleur-accent); }
